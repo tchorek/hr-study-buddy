@@ -1,15 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Button from 'components/atoms/Button/Button';
+import { Wrapper, StyledInfo } from './UsersListItem.styles';
+import { Average } from 'components/atoms/Average/Average';
 
 const UsersListItem = ({ userData: { name, average, attendance = '0%' } }) => (
-  <li>
-    <div>{attendance}</div>
-    <div>
+  <Wrapper>
+    <Average value={average}>{average}</Average>
+    <StyledInfo>
       <p>{name}</p>
-      <p>attendance: {average}</p>
-    </div>
-    <button>x</button>
-  </li>
+      <p>attendance: {attendance}</p>
+    </StyledInfo>
+    <Button />
+  </Wrapper>
 );
 
 UsersListItem.propTypes = {
